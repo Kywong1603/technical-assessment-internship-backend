@@ -10,10 +10,10 @@
         manager.AddItem("Apple");
         manager.AddItem("Banana");
 
+        manager.PrintAllItems();
+
         // Part Two: Implement the RemoveItem method
         manager.RemoveItem("Apple");
-
-        manager.PrintAllItems();
 
         // Part Three: Introduce a Fruit class and use the ItemManager<Fruit> to add a few fruits and print them on the console.
         ItemManager<Fruit> fruit = new ItemManager<Fruit>();
@@ -24,12 +24,10 @@
 
         fruit.PrintAllItems();
 
-        // Part Four (Bonus): Implement an interface IItemManager and make ItemManager implement it.
-        // TODO: Implement this part four.
     }
 }
 
-public class ItemManager
+public class ItemManager : IItemManager
 {
     private List<string> items = new List<string>(); // Part One Fix: Initialize the List
 
@@ -50,6 +48,7 @@ public class ItemManager
     public void RemoveItem(string item)
     {
         items.Remove(item); // Part Two Fix
+        Console.WriteLine("Item Removed: " + item);
     }
 
     public void ClearAllItems()
@@ -81,6 +80,7 @@ public class ItemManager<T>
     }
 }
 
+// Part Three: Introduce Fruit Class
 public class Fruit
 {
     public string name { get; set; }
@@ -89,5 +89,15 @@ public class Fruit
     {
         return "Fruit: " + name;
     }
+
+}
+
+// Part Four (Bonus): Implement an interface IItemManager and make ItemManager implement it.
+public interface IItemManager
+{
+    void AddItem(string item);
+    void PrintAllItems();
+    void RemoveItem(string item);
+    void ClearAllItems();
 
 }
