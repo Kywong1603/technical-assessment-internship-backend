@@ -14,7 +14,7 @@
         manager.PrintAllItems();
 
         // Part Two: Implement the RemoveItem method
-        manager.RemoveItem("Apple");
+        // manager.RemoveItem("Apple");
 
         // Part Three: Introduce a Fruit class and use the ItemManager<Fruit> to add a few fruits and print them on the console.
         // TODO: Implement this part three.
@@ -26,7 +26,7 @@
 
 public class ItemManager
 {
-    private List<string> items;
+    private List<string> items = new List<string>();
 
     public void AddItem(string item)
     {
